@@ -19,6 +19,8 @@ public class EstudianteRepository implements IEstudianteRepository {
         if (estudiante == null) {
             throw new IllegalArgumentException("El estudiante no puede ser nulo.");
         }
+
+        // Validación: no se permiten nombres duplicados (insensible a mayúsculas)
         boolean yaExiste = estudiantes.stream()
                 .anyMatch(e -> e.getNombre().equalsIgnoreCase(estudiante.getNombre()));
         if (yaExiste) {
