@@ -1,4 +1,4 @@
-package gestioncalificaciones;
+package src.gestioncalificaciones;
 
 public class Main {
     public static void main(String[] args) {

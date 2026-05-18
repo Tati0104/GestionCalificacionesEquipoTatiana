@@ -1,7 +1,7 @@
-package gestioncalificaciones.ui;
+package src.gestioncalificaciones.ui;
 
-import gestioncalificaciones.model.Estudiante;
-import gestioncalificaciones.service.IEstudianteService;
+import src.gestioncalificaciones.model.Estudiante;
+import src.gestioncalificaciones.service.IEstudianteService;
 import java.util.List;
 import java.util.Optional;
 import java.util.Scanner;

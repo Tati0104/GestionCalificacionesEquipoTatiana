@@ -1,6 +1,6 @@
-package gestioncalificaciones.service;
+package src.gestioncalificaciones.service;
 
-import gestioncalificaciones.model.Estudiante;
+import src.gestioncalificaciones.model.Estudiante;
 import java.util.List;
 import java.util.Optional;
 
