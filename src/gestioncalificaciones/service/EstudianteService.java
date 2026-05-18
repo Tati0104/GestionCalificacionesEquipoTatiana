@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-// === APRENDIZ 2 — Listado y búsqueda ===
 public class EstudianteService implements IEstudianteService {
 
     private final IEstudianteRepository repository;
@@ -31,7 +30,7 @@ public class EstudianteService implements IEstudianteService {
     }
 
     // Búsqueda insensible a mayúsculas usando Optional (sin retornar null)
-    // @Override
+    @Override
     public Optional<Estudiante> buscarPorNombre(String nombre) {
         if (nombre == null || nombre.isBlank()) {
             return Optional.empty();
