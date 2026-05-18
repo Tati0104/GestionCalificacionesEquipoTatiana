@@ -20,7 +20,6 @@ public class EstudianteService implements IEstudianteService {
         repository.registrar(new Estudiante(nombre, nota));
     }
 
-    // SOLID — S: este método solo lista estudiantes ordenados
     @Override
     public List<Estudiante> listarEstudiantes() {
         return repository.obtenerTodos()
@@ -29,13 +28,10 @@ public class EstudianteService implements IEstudianteService {
                 .collect(Collectors.toList());
     }
 
-    // Búsqueda insensible a mayúsculas usando Optional (sin retornar null)
     @Override
     public Optional<Estudiante> buscarPorNombre(String nombre) {
-        if (nombre == null || nombre.isBlank()) {
+        if (nombre == null || nombre.isBlank())
             return Optional.empty();
-        }
-
         return repository.obtenerTodos()
                 .stream()
                 .filter(e -> e.getNombre().equalsIgnoreCase(nombre.trim()))
@@ -45,10 +41,8 @@ public class EstudianteService implements IEstudianteService {
     @Override
     public double calcularPromedio() {
         List<Estudiante> todos = repository.obtenerTodos();
-        if (todos.isEmpty()) {
-            return 0;
-        }
-
+        if (todos.isEmpty())
+            return 0.0;
         return todos.stream()
                 .mapToDouble(Estudiante::getNota)
                 .average()
@@ -57,11 +51,17 @@ public class EstudianteService implements IEstudianteService {
 
     @Override
     public Optional<Estudiante> estudianteConMayorNota() {
-        return Optional.empty();
+        return repository.obtenerTodos()
+                .stream()
+                .max(Comparator.comparingDouble(Estudiante::getNota));
     }
 
     @Override
     public List<Estudiante> obtenerAprobados() {
-        return List.of();
+        return repository.obtenerTodos()
+                .stream()
+                .filter(Estudiante::estaAprobado)
+                .sorted(Comparator.comparingDouble(Estudiante::getNota).reversed())
+                .collect(Collectors.toList());
     }
 }
