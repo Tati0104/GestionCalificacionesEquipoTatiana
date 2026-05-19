@@ -1,9 +1,9 @@
-package gestioncalificaciones;
+package src.gestioncalificaciones;
 
-import gestioncalificaciones.repository.EstudianteRepository;
-import gestioncalificaciones.repository.IEstudianteRepository;
-import gestioncalificaciones.service.EstudianteService;
-import gestioncalificaciones.service.IEstudianteService;
+import src.gestioncalificaciones.repository.EstudianteRepository;
+import src.gestioncalificaciones.repository.IEstudianteRepository;
+import src.gestioncalificaciones.service.EstudianteService;
+import src.gestioncalificaciones.service.IEstudianteService;
 import gestioncalificaciones.ui.Menu;
 
 public class Main {

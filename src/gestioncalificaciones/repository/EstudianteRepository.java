@@ -1,6 +1,6 @@
-package gestioncalificaciones.repository;
+package src.gestioncalificaciones.repository;
 
-import gestioncalificaciones.model.Estudiante;
+import src.gestioncalificaciones.model.Estudiante;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;

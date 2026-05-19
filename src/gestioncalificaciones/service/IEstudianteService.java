@@ -1,33 +1,34 @@
-package gestioncalificaciones.service;
+package src.gestioncalificaciones.service;
 
-import gestioncalificaciones.model.Estudiante;
+import src.gestioncalificaciones.model.Estudiante;
 import java.util.List;
 import java.util.Optional;
 
 /**
- * Contrato de lógica de negocio para el módulo de calificaciones.
+ * Contrato de logica de negocio para el modulo de calificaciones.
  *
- * SOLID — I (Interface Segregation):
+ * SOLID - I (Interface Segregation):
  * Esta interfaz agrupa operaciones cohesivas del mismo dominio.
- * Si el sistema creciera con módulos muy distintos (ej: reportes PDF,
- * notificaciones), se crearían interfaces separadas en lugar de
- * agregar métodos aquí.
  *
- * SOLID — D (Dependency Inversion):
+ * SOLID - D (Dependency Inversion):
  * Menu.java depende de esta interfaz, nunca de EstudianteService directamente.
  */
 public interface IEstudianteService {
 
-    // ── Módulo Registro ──────────────────────────────────────────────
-    void registrarEstudiante(String nombre, double nota);
+    // -- Modulo Registro --------------------------------------------------
+    void registrarEstudiante(String nombre);
 
-    // ── Módulo Listado y Búsqueda (Aprendiz 3) ───────────────────────
+    void agregarNotaAEstudiante(String nombre, double nota);
+
+    // -- Modulo Listado y Busqueda ----------------------------------------
     List<Estudiante> listarEstudiantes();
 
     Optional<Estudiante> buscarPorNombre(String nombre);
 
-    // ── Módulo Estadísticas (Aprendiz 4) ─────────────────────────────
+    // -- Modulo Estadisticas ----------------------------------------------
     double calcularPromedio();
+
+    double calcularPromedioEstudiante(String nombre);
 
     Optional<Estudiante> estudianteConMayorNota();
 

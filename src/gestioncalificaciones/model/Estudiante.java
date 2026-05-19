@@ -1,4 +1,4 @@
-package gestioncalificaciones.model;
+package src.gestioncalificaciones.model;
 
 /**
  * Entidad principal del sistema.
